@@ -16,7 +16,7 @@ class CreateReservationsTable extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('horaReserva');
-            $table->enum('choices', ['A', 'I']);
+            $table->enum('estado', ['A', 'I']);
             $table->integer('persona_id')->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->timestamps();

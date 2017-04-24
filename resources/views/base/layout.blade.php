@@ -41,7 +41,7 @@
 		    <div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav pull-right">		      	
 			        <li class="active color-link"><a href="/"><b>Inicio</b> <span class="sr-only">(current)</span></a></li>
-			        <li class="color-link"><a href="#"><b>Canchas</b></a></li>
+			        <li class="color-link"><a href="/canchas"><b>Canchas</b></a></li>
 			        <li class="color-link"><a href="#"><b>Reservas</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->

@@ -1,5 +1,7 @@
 @extends('base.layout')
 
+	@section('title', 'index')
+
 	@section('content')
 		
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -16,7 +16,8 @@ class CreateSoccerFieldsTable extends Migration
         Schema::create('canchas', function (Blueprint $table) {
             $table->increments('id');
             $table->String('numeroCancha', 20);
-            $table->enum('choices', ['D', 'O', 'C']);
+            $table->String('img', 100);
+            $table->enum('estado', ['D', 'O', 'C']);
             $table->timestamps();
         });
     }

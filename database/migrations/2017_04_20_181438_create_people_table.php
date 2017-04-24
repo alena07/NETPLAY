@@ -18,7 +18,7 @@ class CreatePeopleTable extends Migration
             $table->String('nombres', 45);
             $table->String('apellidos', 45);
             $table->integer('cedula')->unique();
-            $table->enum('choices', ['A', 'C']);
+            $table->enum('tipo', ['A', 'C']);
             $table->String('telefono', 20);
             $table->String('usuario', 45);
             $table->String('contrasenia', 45);
