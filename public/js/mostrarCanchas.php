@@ -13,11 +13,17 @@
 		foreach ($resultados as $resultado) {
 			$id = $resultado['id'];
 			$imagenCancha = $resultado['imagenCancha'];
+			$numeroCancha = $resultado['numeroCancha'];
+			$nombre = $resultado['nombre'];
+			$direccion = $resultado['direccion'];
 
 			$html .="<div class='col-sm-4 col-md-4 col-lg-4'>
-					<a href='#'' data-toggle='modal' data-target='#myModal'>
+					<b><h1>$numeroCancha</h1></b>
+					<a href='#' data-toggle='modal' data-target='#myModal'>
 					<img id='$id' class='img-responsive' src='$imagenCancha' alt='Not found'>
 					</a>
+					<h3 style='margin-top: 2%; margin-bottom: 0px'>Local: $nombre</h3>
+					<h3 style='margin-top: 0px'>Dirección: $direccion</h3>
 					</div>";
 		};
 

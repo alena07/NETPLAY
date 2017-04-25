@@ -41,8 +41,8 @@
 
 	}catch(PDOException $e){
 
-		$a = "ERROR:".$e->getMessage();
-		echo json_encode($a);
+		$e->getMessage();
+		echo json_encode($e);
 
 	}
 
