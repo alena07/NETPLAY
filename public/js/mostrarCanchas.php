@@ -5,7 +5,7 @@
 		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = $conn->prepare('SELECT * FROM localidades,canchas ORDER BY numeroCancha');
+		$sql = $conn->prepare('SELECT * FROM localidades,canchas');
 		$sql->execute();
 		$resultados = $sql->fetchAll();
 		$html = "";
@@ -17,7 +17,7 @@
 			$nombre = $resultado['nombre'];
 			$direccion = $resultado['direccion'];
 
-			$html .="<div class='col-sm-4 col-md-4 col-lg-4'>
+			$html .="<div id='$id' class='col-sm-4 col-md-4 col-lg-4'>
 					<b><h1>$numeroCancha</h1></b>
 					<a href='#' data-toggle='modal' data-target='#myModal'>
 					<img id='$id' class='img-responsive' src='$imagenCancha' alt='Not found'>

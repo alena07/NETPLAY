@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('canchas', 'MainsController@index');
+Route::get('canchas', 'MainsController@canchas');
+
+Route::get('reservas', 'MainsController@reservas');

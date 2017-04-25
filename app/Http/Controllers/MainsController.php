@@ -7,9 +7,13 @@ use App\Cancha;
 
 class MainsController extends Controller
 {
-    public function index()
+    public function canchas()
     {
-      $canchas = Cancha::orderBy('numeroCancha', 'asc')->get(); 
-      return view('canchas')->with(['canchas'=>$canchas]);
+      return view('canchas');
+    }
+
+     public function reservas()
+    {
+      return view('reservas');
     }
 }

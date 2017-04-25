@@ -9,21 +9,21 @@ $(document).ready(function(){
 		.done(function(response) {
 		$('#canchas').html(response);
 	});
+
+	$("#canchas").on("click", "img", function(){
+
+	var cancha = $(this).attr("id");
+
+		$.ajax({
+		method: "POST",
+		url: "/js/mostrarDisponibilidadCanchas.php",
+		dataType: 'json',
+		data: { idcancha: cancha }
+		})
+
+		.done(function(response) {
+			$('#modal').html(response);
+		});
+
+	});	
 });
-
-// $("img").click(function() {
-
-// 		var cancha = $(this).attr("id");
-
-		// $.ajax({
-		// method: "POST",
-		// url: "/js/mostrarDisponibilidadCanchas.php",
-		// dataType: 'json',
-		// data: { idcancha: cancha }
-		// })
-
-		// .done(function(response) {
-		// 	$('#modal').html(response);
-		// });
-
-// 	});	

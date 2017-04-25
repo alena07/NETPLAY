@@ -27,14 +27,6 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-
-		      {{-- Logo --}}
-				{{-- <div class="col-md-6">
-		      		<img src="/img/logoNetPlay2.png" alt="" width="60%">
-		      	</div>
-		      	<div class="col-md-6">
-		      		<h1 class="center-title"><b><span class="color-green"><FONT SIZE=100>Net</font></span><FONT SIZE=50>Play</font></b></h1>
-		      	</div> --}}
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,7 +44,7 @@
 			<div class="col-md-5 col-sm-5">
 			<div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav pull-left">    
-			        <li class="color-link nav-text"><a href="#"><b>Reservas</b></a></li>
+			        <li class="color-link nav-text"><a href="/reservas"><b>Reservas</b></a></li>
 			        <li class="color-link nav-text"><a href="/canchas"><b>Contactos</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->
