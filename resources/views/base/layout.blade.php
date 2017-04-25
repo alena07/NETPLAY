@@ -55,15 +55,16 @@
 	</header>
 <br><br>
 	<section>
-
-		@yield('content')
-
+		<div class="container">
+			@yield('content')
+		</div>
 	</section>
 
 		<!-- Pie de pagina -->
 		<br>
 		<footer>
-
+		<div class="col-sm-12 col-md-12 col-lg-12 footer-texture">
+		</div>
 		<div class="col-sm-12 col-md-12 col-lg-12 color-footer">
 
 			{{-- Copyright --}}

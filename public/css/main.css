@@ -12,6 +12,10 @@ body{
 	background-color: #f8f9fb;
 }
 
+p {
+    margin: 0 0 0px;
+}
+
 .navbar-color{
 	background-color: #1b1b1b;
 }
@@ -56,7 +60,7 @@ body{
 /* Slider */
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-     /* width: 70%;*/
+      width: 100%;
       margin: auto;
 }
 
@@ -84,6 +88,13 @@ body{
 	font-size: 17px;
 }
 
+.text-titulo{
+	font-size: 50px;
+    font-weight: bold;
+    font-family: "Comforta";
+    text-align: center;
+}
+
 /* Color del footer*/
 .color-footer{
 	background-color: #1b1b1b;
@@ -103,4 +114,31 @@ body{
     color: #e2e1e1;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.footer-texture{
+	background: url(../img/linea.png) repeat-x;
+	background-color: #1b1b1b;
+	height: 30px;
+}
+
+.barras{
+	padding-top: 5%;
+}
+@media (max-width: 1200px){
+	.barras{
+	    padding-top: 10%;
+	}
+}
+
+@media (max-width: 992px){
+	.barras{
+	    padding-top: 15%;
+	}
+}
+
+@media (max-width: 768px){
+	.barras{
+	    padding-top: 0%;
+	}
 }
