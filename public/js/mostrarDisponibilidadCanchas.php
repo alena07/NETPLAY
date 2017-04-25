@@ -34,7 +34,6 @@
 
 		};
 
-		// Table end
 		$html .="</tbody>
 				</table>";
 

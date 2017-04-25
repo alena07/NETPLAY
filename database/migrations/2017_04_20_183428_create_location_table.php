@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSoccerFieldsTable extends Migration
+class CreateLocationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateSoccerFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('canchas', function (Blueprint $table) {
+        Schema::create('localidades', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('numeroCancha', 20);
-            $table->String('imagenCancha', 100);
-            $table->enum('estado', ['D', 'O', 'C']);
-            $table->integer('localidad_id')->unsigned();
-            $table->foreign('localidad_id')->references('id')->on('localidades');
+            $table->String('nombre', 45);
+            $table->String('direccion', 45);
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateSoccerFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('canchas');
+        Schema::dropIfExists('localidades');
     }
 }
