@@ -17,7 +17,7 @@
 	<header>
 		
 		<nav class="navbar navbar-default navbar-color">
-		  <div class="container-fluid">
+		  <div class="row">
 
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
@@ -29,27 +29,39 @@
 		      </button>
 
 		      {{-- Logo --}}
-				<div class="col-md-6">
+				{{-- <div class="col-md-6">
 		      		<img src="/img/logoNetPlay2.png" alt="" width="60%">
 		      	</div>
 		      	<div class="col-md-6">
 		      		<h1 class="center-title"><b><span class="color-green"><FONT SIZE=100>Net</font></span><FONT SIZE=50>Play</font></b></h1>
-		      	</div>
+		      	</div> --}}
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="col-md-5 col-sm-5">
 		    <div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav pull-right">		      	
-			        <li class="active color-link"><a href="/"><b>Inicio</b> <span class="sr-only">(current)</span></a></li>
-			        <li class="color-link"><a href="/canchas"><b>Canchas</b></a></li>
-			        <li class="color-link"><a href="#"><b>Reservas</b></a></li>
+			        <li class="active color-link nav-text"><a href="/"><b>Inicio</b> <span class="sr-only">(current)</span></a></li>
+			        <li class="color-link nav-text"><a href="/canchas"><b>Canchas</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->
+		    </div>
+		    <div class="col-md-2 col-sm-2">
+			    	<a class="logo" href="/"></a>
+			</div>
+			<div class="col-md-5 col-sm-5">
+			<div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav pull-left">    
+			        <li class="color-link nav-text"><a href="#"><b>Reservas</b></a></li>
+			        <li class="color-link nav-text"><a href="/canchas"><b>Contactos</b></a></li>
+			    </ul>		       
+		    </div><!-- /.navbar-collapse -->
+		    </div>
 		  </div><!-- /.container-fluid -->
 		</nav>
 
 	</header>
-
+<br><br>
 	<section>
 
 		@yield('content')
@@ -64,7 +76,7 @@
 
 			{{-- Copyright --}}
 			<div class="col-ms-4 col-md-4 col-lg-4 color-footer-leter">
-			{{-- <center><img class="img-responsive" src="{{ asset('img/logo-blanco.png') }}" alt="No found" width="20%"></center> --}}
+			<center><img class="img-responsive" src="{{ asset('img/logopeque.png') }}" alt="No found" width="18%"></center>
 			<p>Todos los derechos reservados © 2017</p>			
 			</div>
 
