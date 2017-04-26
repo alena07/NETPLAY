@@ -38,8 +38,6 @@ $("#form").on("submit", function(){
 	var horaFinal = $("#horaFinal").val();
 	var idcancha = $("#cancha").val();
 
-	alert(horaActual);
-
 	$.ajax({
 	method: "POST",
 	url: "/js/ingresarReserva.php",
@@ -49,7 +47,8 @@ $("#form").on("submit", function(){
 	})
 
 	.done(function(response) {
-	$('#respuesta').html(response);
+		$('#respuesta').html(response);
+		// alert("llego");
 	});
 
 	return false;
