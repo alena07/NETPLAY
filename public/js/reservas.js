@@ -34,20 +34,26 @@ function d(){
 	alert(a);
 }
 
-// $("#form").on("submit", function(){
+$("#form").on("submit", function(){
 
-// 	var username = $("#username").val();
+	var horaActual = $("#horaActual").val();
+	var fechaInicial = $("#horaInicial").val();
+	var fechaFinal = $("#horaFinal").val();
+	var horaInicial = $("#horaInicial").val();
+	var horaFinal = $("#horaFinal").val();
 
-// 	$.ajax({
-// 	method: "POST",
-// 	url: "/js/adminIngresarDatos.php",
-// 	dataType: 'json',
-// 	data: { name: username }
-// 	})
+	alert(horaActual);
 
-// 	.done(function(response) {
-// 	$('#r').html(response);
-// 	});
+	// $.ajax({
+	// method: "POST",
+	// url: "/js/adminIngresarDatos.php",
+	// dataType: 'json',
+	// data: { horaActual: horaActual }
+	// })
 
-// 	return false;
-// });
+	// .done(function(response) {
+	// $('#r').html(response);
+	// });
+
+	// return false;
+});

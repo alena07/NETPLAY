@@ -1,6 +1,6 @@
 <?php
 
-	$name = $_POST['name'];
+	$horaActual = $_POST['horaActual'];
 
 	try{
 
@@ -8,9 +8,8 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-		$sql = $conn->prepare('INSERT INTO reserva VALUES (null, :horaReserva, "A", null, "1")');
-		$sql->bindParam("name", $name, PDO::PARAM_STR);
-
+		$sql = $conn->prepare('INSERT INTO reserva VALUES (null, :horaActual, "A", null, "1")');
+		$sql->bindParam("horaActual", $horaActual, PDO::PARAM_STR);
 		$sql->execute();
 
 		$sql = $conn->prepare('SELECT * FROM reserva ORDER BY id DESC LIMIT 1');

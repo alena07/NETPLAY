@@ -18,12 +18,18 @@
 						<br>
 
 						<label class="label-form form-group">Hora Inicial:</label>
-						<input class="form-control" type="datetime-local"  id="datetime" value="<?php echo date("Y-m-d\TH:i");?>"><br>
+						<input class="form-control" type="date" id="fechaInicial" value="<?php echo date("Y-m-d");?>"><br>
+
+						<input class="form-control" type="time" id="horaInicial" value="<?php echo date("H:i");?>"><br>
 
 						<label class="label-form form-group">Hora Final:</label>
-						<input class="form-control" type="datetime-local"  id="datetime" value="<?php echo date("Y-m-d\TH:i");?>"><br>
+						<input class="form-control" type="datetime" id="fechaFinal" value="<?php echo date("Y-m-d\ H:i");?>"><br>
 
-						<input class="btn btn-success pull-right" type="button" value="Enviar" onclick="d()">
+						<input class="form-control" type="time" id="horaInicial" value="<?php echo date("H:i");?>"><br>
+
+						<input class="btn btn-success pull-right" type="submit" value="Enviar">
+
+						<input class="form-control" type="date" id="horaActual" style="display:none" value="<?php echo date("Y-m-d");?>"><br>
 					</div>
 				</form>
 			</div>
