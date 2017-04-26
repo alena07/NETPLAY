@@ -25,9 +25,11 @@
 						<label class="label-form form-group">Hora Final:</label>
 						<input class="form-control" type="datetime" id="fechaFinal" value="<?php echo date("Y-m-d\ H:i");?>"><br>
 
-						<input class="form-control" type="time" id="horaInicial" value="<?php echo date("H:i");?>"><br>
+						<input class="form-control" type="time" id="horaFinal" value="<?php echo date("H:i");?>"><br>
 
 						<input class="btn btn-success pull-right" type="submit" value="Enviar">
+
+						<p id="respuesta"></p>
 
 						<input class="form-control" type="date" id="horaActual" style="display:none" value="<?php echo date("Y-m-d");?>"><br>
 					</div>

@@ -29,31 +29,28 @@ function mostrarCanchas() {
 
 }
 
-function d(){
-	var a = $("#datetime").val();
-	alert(a);
-}
-
 $("#form").on("submit", function(){
 
 	var horaActual = $("#horaActual").val();
-	var fechaInicial = $("#horaInicial").val();
-	var fechaFinal = $("#horaFinal").val();
+	var fechaInicial = $("#fechaInicial").val();
+	var fechaFinal = $("#fechaFinal").val();
 	var horaInicial = $("#horaInicial").val();
 	var horaFinal = $("#horaFinal").val();
+	var idcancha = $("#cancha").val();
 
 	alert(horaActual);
 
-	// $.ajax({
-	// method: "POST",
-	// url: "/js/adminIngresarDatos.php",
-	// dataType: 'json',
-	// data: { horaActual: horaActual }
-	// })
+	$.ajax({
+	method: "POST",
+	url: "/js/ingresarReserva.php",
+	dataType: 'json',
+	data: { horaActual: horaActual, fechaInicial: fechaInicial, fechaFinal: fechaFinal,
+	 horaInicial: horaInicial, horaFinal: horaFinal, idcancha: idcancha}
+	})
 
-	// .done(function(response) {
-	// $('#r').html(response);
-	// });
+	.done(function(response) {
+	$('#respuesta').html(response);
+	});
 
-	// return false;
+	return false;
 });
