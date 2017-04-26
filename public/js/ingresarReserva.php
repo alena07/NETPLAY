@@ -12,7 +12,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('INSERT INTO reservas VALUES (null, :horaActual, "A", "correcto", "1", null, null)');

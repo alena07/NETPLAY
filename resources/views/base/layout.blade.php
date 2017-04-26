@@ -70,7 +70,8 @@
 			{{-- Copyright --}}
 			<div class="col-ms-4 col-md-4 col-lg-4 color-footer-leter">
 			<center><img class="img-responsive" src="{{ asset('img/logopeque.png') }}" alt="No found" width="18%"></center>
-			<p>Todos los derechos reservados © 2017</p>			
+			<p>Todos los derechos reservados © 2017</p>	
+			<p>Alejandra Barreto & Danilo Doncel</p>		
 			</div>
 
 			{{-- Enlaces --}}

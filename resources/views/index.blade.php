@@ -70,12 +70,12 @@
 			</div>
 			<div class="col-sm-8 col-md-8 col-lg-8">
 				<br>
-				<p style="font-size: 17px">Somos una organización Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p style="font-size: 17px">Netplay es un servicio web especialmente para canchas 
+				sintéticas que estan ubicadas en Girardot Cundinamarca, 
+				con el fin de ofrecer una gestión eficiente
+				a la hora de reservar canchas a sus clientes, de acuerdo
+				a sus preferencias en los establecimientos 
+				registrados.</p>
 			</div>
 		</div>
 
