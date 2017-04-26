@@ -12,7 +12,7 @@
 		$resultados = $sql->fetchAll();
 		$html = "";
 
-		$html .= "<option>Seleccione una cancha</option>";
+		$html .= "<option>Seleccione</option>";
 		
 		foreach ($resultados as $resultado) {
 			$id = $resultado['id'];

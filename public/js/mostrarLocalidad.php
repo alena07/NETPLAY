@@ -10,7 +10,7 @@
 		$resultados = $sql->fetchAll();
 		$html = "";
 
-		$html .= "<option>Seleccione una localidad</option>";
+		$html .= "<option>Seleccione</option>";
 
 		foreach ($resultados as $resultado) {
 			$id = $resultado['id'];

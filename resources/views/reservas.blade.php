@@ -5,16 +5,26 @@
 	@section('content')
 
 		<div class="container">
-			<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="col-sm-12 col-md-12 col-lg-12 formulario">
 				<form id="form">
-					<select id="localidad" onchange=" mostrarCanchas()">
-					<option>Seleccione una localidad</option>
-					</select>
-					<select id="cancha"><option>Seleccione una cancha</option></select>
-					<input type="date" id="date" value="<?php echo date("Y-m-d");?>">
-					<input type="time" id="time" value="<?php echo date("H:i");?>">
-					<input type="datetime-local"  id="datetime" value="<?php echo date("Y-m-d\TH:i");?>">
-					<input type="button" value="enviar" onclick="d()">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<label class="label-form form-group">Selecciona una Localidad:</label>
+						<select class="form-control" id="localidad" onchange=" mostrarCanchas()">
+							<option>Seleccione</option>
+						</select><br>
+
+						<label class="label-form form-group">Selecciona una Cancha:</label>
+						<select class="form-control" id="cancha"><option>Seleccione</option></select>
+						<br>
+
+						<label class="label-form form-group">Hora Inicial:</label>
+						<input class="form-control" type="datetime-local"  id="datetime" value="<?php echo date("Y-m-d\TH:i");?>"><br>
+
+						<label class="label-form form-group">Hora Final:</label>
+						<input class="form-control" type="datetime-local"  id="datetime" value="<?php echo date("Y-m-d\TH:i");?>"><br>
+
+						<input class="btn btn-success" type="button" value="enviar" onclick="d()">
+					</div>
 				</form>
 			</div>
 		</div>

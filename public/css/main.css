@@ -122,6 +122,32 @@ p {
 	height: 30px;
 }
 
+.cancha-titulo{
+	font-family: "Comforta";
+	color: #008000;
+}
+
+.formulario {
+	background-color: #fff;
+    width: 100%;
+    margin-left: 10%;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-top: 18px;
+    padding-right: 14px;
+    padding-left: 14px;
+    max-width: 500px;
+}
+
+/* Thead estilo */
+.thead-s{
+	background: #40A640;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Comforta";
+}
+
 .barras{
 	padding-top: 5%;
 }

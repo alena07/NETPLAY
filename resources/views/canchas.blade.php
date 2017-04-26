@@ -22,8 +22,8 @@
 						<table class="table table-bordered">
 						    <thead>
 						      <tr>
-						        <th>Hora I.</th>
-						        <th>Hora F.</th>
+						        <th>Hora Inicial</th>
+						        <th>Hora Final</th>
 						      </tr>
 						    </thead>
 						    <tbody>
