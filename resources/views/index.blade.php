@@ -57,7 +57,7 @@
 				<img class="img-responsive barras" src="/img/barra.png" alt="Barra">
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4">
-				<p class="text-titulo">Net<font color="#008000">Play</font></p>
+				<p class="text-titulo"><font color="#008000">Net</font>Play</p>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4">
 				<img class="img-responsive barras" src="/img/barra.png" alt="Barra">
