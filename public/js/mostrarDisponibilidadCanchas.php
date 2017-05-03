@@ -8,7 +8,7 @@
 		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = $conn->prepare('SELECT usuario,TIME(fechaInicial) FROM personas,reservas,canchas,reservasCanchas WHERE personas.id = reservas.persona_id AND canchas.id = :idcancha AND reservascanchas.cancha_id = :idcancha AND DATE(fechaInicial) = :fechaBusqueda ORDER BY fechaInicial');
+		$sql = $conn->prepare('SELECT usuario,TIME(fechaInicial) FROM personas,reservas,reservasCanchas WHERE personas.id = reservas.persona_id AND reservasCanchas.cancha_id = :idcancha AND reservascanchas.reserva_id = reservas.id AND DATE(fechaInicial) = :fechaBusqueda ORDER BY fechaInicial');
 		$sql->execute(array('idcancha' => $idcancha, 'fechaBusqueda' => $fechaBusqueda));
 		$resultados = $sql->fetchAll();
 		$html = "";
