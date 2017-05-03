@@ -16,7 +16,7 @@
 			$numeroCancha = $resultado['numeroCancha'];
 			$nombre = $resultado['nombre'];
 			$direccion = $resultado['direccion'];
-			$telefono = $resultado['telefono'];
+
 
 			$html .="<div id='$id' class='col-sm-4 col-md-4 col-lg-4'>
 					<b><h1 class='cancha-titulo'>$numeroCancha</h1></b>
@@ -25,7 +25,7 @@
 					</a>
 					<h3 style='margin-top: 2%; margin-bottom: 0px'><b>Local:</b> <spam>$nombre</spam></h3>
 					<h3 style='margin-top: 0px'><b>Dirección:</b> <spam>$direccion</spam></h3>
-					<h3 style='margin-top: 0px'><b>Dirección:</b> <spam>$telefono</spam></h3>
+
 					</div>";
 		};
 

@@ -48,7 +48,7 @@ $("#form").on("submit", function(){
 
 	.done(function(response) {
 		$('#respuesta').html(response);
-		// alert("llego");
+		$('#form').trigger("reset");
 	});
 
 	return false;

@@ -17,7 +17,7 @@ class CreateLocationTable extends Migration
             $table->increments('id');
             $table->String('nombre', 45);
             $table->String('direccion', 45);
-            $table->integer('telefono');
+            $table->String('telefono', 20);
             $table->timestamps();
         });
     }

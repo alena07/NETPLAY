@@ -7,12 +7,17 @@ use App\Cancha;
 
 class MainsController extends Controller
 {
+	public function index()
+    {
+      return view('index');
+    }
+
     public function canchas()
     {
       return view('canchas');
     }
 
-     public function reservas()
+    public function reservas()
     {
       return view('reservas');
     }
