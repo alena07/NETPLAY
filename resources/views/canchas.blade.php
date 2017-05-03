@@ -5,7 +5,7 @@
 	@section('content')
 	
 	<div id="canchas" class="col-sm-12 col-md-12 col-lg-12">
-
+		
 	</div>
 
 	{{-- Modal --}}
@@ -17,6 +17,7 @@
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal">&times;</button>
 			          <h4 class="modal-title">Horario</h4>
+			          <input type="date" id="fechaBusqueda" oninput="BuscarTodo()">
 			        </div>
 			        <div id="modal" class="modal-body">
 						<table class="table table-bordered">
@@ -41,8 +42,6 @@
 		      
 		    </div>
 		</div>
-
-
 
 	@endsection
 

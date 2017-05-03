@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    // return view('user.login');
+    return view('index');
+});
+Route::get('login', function () {
     return view('user.login');
 });
 
@@ -19,6 +23,6 @@ Route::get('canchas', 'MainsController@canchas');
 
 Route::get('reservas', 'MainsController@reservas');
 
-Route::get('inicio', 'MainsController@index');
+// Route::get('inicio', 'MainsController@index');
 
 Route::get('registrar', 'UsersController@registrar');
