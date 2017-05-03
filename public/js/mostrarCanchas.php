@@ -2,10 +2,10 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = $conn->prepare('SELECT * FROM localidades,canchas');
+		$sql = $conn->prepare('SELECT * FROM localidades,canchas WHERE localidades.id = canchas.localidad_id');
 		$sql->execute();
 		$resultados = $sql->fetchAll();
 		$html = "";
@@ -25,7 +25,11 @@
 					</a>
 					<h3 style='margin-top: 2%; margin-bottom: 0px'><b>Local:</b> <spam>$nombre</spam></h3>
 					<h3 style='margin-top: 0px'><b>Dirección:</b> <spam>$direccion</spam></h3>
+<<<<<<< HEAD
 
+=======
+					<h3 style='margin-top: 0px'><b>Telefono:</b> <spam>$telefono</spam></h3>
+>>>>>>> 1d9944095d5fae4ecd85d99bd0fa6d70b1b6d4e1
 					</div>";
 		};
 
