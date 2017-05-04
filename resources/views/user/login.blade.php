@@ -15,14 +15,14 @@
 </head>
 <body>
 	<div class="container">	
-		<div class="formulario" style="margin-top: 7%;">
+		<div class="formulario-login" style="margin-top: 7%;">
 			<div class="form-top">
         		<div class="form-top-left">
         			<h3 class="login-titulo">Entra a nuestro sitio web <i class="fa fa-unlock-alt login-icon pull-right" aria-hidden="true"></i></h3>
 
         		</div>
             </div>
-            
+
             <hr>
             <div class="form-bottom">
 				<form role="form" action="" method="post" class="login-form">
