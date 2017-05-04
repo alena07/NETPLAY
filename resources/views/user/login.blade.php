@@ -9,6 +9,7 @@
 
 	{{-- Botstrap --}}
 	<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 </head>
@@ -17,20 +18,31 @@
 		<div class="formulario" style="margin-top: 7%;">
 			<div class="form-top">
         		<div class="form-top-left">
-        			<h3 class="login-titulo">Entra a nuestro sitio web</h3>
+        			<h3 class="login-titulo">Entra a nuestro sitio web <i class="fa fa-unlock-alt login-icon pull-right" aria-hidden="true"></i></h3>
+
         		</div>
             </div>
+            
             <hr>
-            <br>
             <div class="form-bottom">
 				<form role="form" action="" method="post" class="login-form">
-					<label class="label-form login-text">Usuario</label>
-					<input type="text" name="usuario" placeholder="Usuario..." class="form-username form-control">
-					<br>
-					<label class="label-form login-text">Contraseña</label>
-					<input type="password" name="contrasena" placeholder="Contraseña..." class="form-username form-control" >
-					<br><br>
-					<button type="submit" class="btn btn-success pull-right">Entra!</button>
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<label class="label-form login-text">Usuario</label>
+						<input type="text" name="usuario" placeholder="Usuario..." class="form-username form-control">
+					</div>
+
+					<div class="col-lg-12 col-md-12 col-sm-12"><br></div>
+
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<label class="label-form login-text">Contraseña</label>
+						<input type="password" name="contrasena" placeholder="Contraseña..." class="form-username form-control" >
+					</div>
+
+					<div class="col-lg-12 col-md-12 col-sm-12"><br><br></div>
+
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<button type="submit" class="btn btn-success pull-right">Entra!</button>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -154,6 +154,11 @@ p {
     font-weight: bold;
 }
 
+.login-icon{
+    text-align: right;
+    font-size: 40px;
+    color: rgba(51, 51, 51, 0.4);
+}
 /* Thead estilo */
 .thead-s{
 	background: #40A640;
