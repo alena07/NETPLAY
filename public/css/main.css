@@ -142,6 +142,18 @@ p {
     box-shadow: 1px 3px 7px #888888;
 }
 
+.login-text{
+    font-size: 18px;
+    font-family: "Comforta";
+    font-weight: bold;
+}
+
+.login-titulo{
+    color: #008000;
+    font-family: "Comforta";
+    font-weight: bold;
+}
+
 /* Thead estilo */
 .thead-s{
 	background: #40A640;
