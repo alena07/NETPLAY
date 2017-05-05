@@ -12,6 +12,11 @@
 		$sql->execute(array('idcancha' => $idcancha, 'fechaBusqueda' => $fechaBusqueda));
 		$resultados = $sql->fetchAll();
 		$html = "";
+		$cont = 0;
+		$cont2 = 0;
+		$temporal2 = 0;
+		$cont3 = 1;
+		$temporal3 = 1;
 
 		$html .="<table class='table table-bordered'>
 				<thead class='thead-s'>
@@ -27,393 +32,139 @@
 			$usuario = $resultado['usuario'];
 			$fechaInicial = $resultado['TIME(fechaInicial)'];
 
-			$html .="<tr>
-					<td>00:00 A.M - 01:00 A.M</td>";
+			for ($i = 0; $cont <= 23; $i++) {
+				if($cont < 10){
+					$comprobar = "0".$cont.":"."00:00";
+				}else{
+					$comprobar = $cont.":"."00:00";
+				}
+				if($cont2 <= 9){
+					if($cont3 == 10){
+					$horaInicial = "0".$cont2.":"."00 AM";
+					$horaFinal = "10".":"."00 AM";
+					}else{
+					$horaInicial = "0".$cont2.":"."00 AM";
+					$horaFinal = "0".$cont3.":"."00 AM";
+					}
+				}else if($cont2 >= 10 and $cont2 <= 12){
+					if($cont3 == 13){
+					$horaInicial = $cont2.":"."00 PM";
+					$horaFinal = "01".":"."00 PM";
+					}else if($cont3 == 12){
+					$horaInicial = $cont2.":"."00 AM";
+					$horaFinal = $cont3.":"."00 PM";
+					}else{
+					$horaInicial = $cont2.":"."00 AM";
+					$horaFinal = $cont3.":"."00 AM";
+					}
+				}else if($cont2 >= 13 and $cont2 <= 21){
+					if($cont3 == 22){
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = "0".$temporal2.":"."00 PM";
+					$horaFinal = "10".":"."00 PM";
+					}else{
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = "0".$temporal2.":"."00 PM";
+					$horaFinal = "0".$temporal3.":"."00 PM";
+					}
+				}else{
+					if($cont3 ==24){
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = $temporal2.":"."00 PM";
+					$horaFinal = "00".":"."00 AM";
+					}else{
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = $temporal2.":"."00 PM";
+					$horaFinal = $temporal3.":"."00 PM";
+					}
+				}
+					$html .="<tr>
+							<td> $horaInicial - $horaFinal</td>";
+			    if($fechaInicial == $comprobar){
+			    	$html .="<td>Ocupada</td>
+							<td>$usuario</td>";
 
-			if($fechaInicial == "00:00:00"){
+					$cont++;
+				    $cont2++;
+				    $cont3++;
 
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
+					break;
+			    }else{
+			    	$html .="<td>Disponible</td>
 					<td></td>";
 
+					$cont++;
+				    $cont2++;
+				    $cont3++;
+			    }
+			    
 			}
-
-			$html .="</tr>
-					<tr>
-					<td>01:00 A.M - 02:00 A.M</td>";	
-
-			if($fechaInicial == "01:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>02:00 A.M - 03:00 A.M</td>";	
-
-			if($fechaInicial == "02:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>03:00 A.M - 04:00 A.M</td>";	
-
-			if($fechaInicial == "03:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>04:00 A.M - 05:00 A.M</td>";	
-
-			if($fechaInicial == "04:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>05:00 A.M - 06:00 A.M</td>";	
-
-			if($fechaInicial == "05:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>06:00 A.M - 07:00 A.M</td>";	
-
-			if($fechaInicial == "06:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>07:00 A.M - 08:00 A.M</td>";	
-
-			if($fechaInicial == "07:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>08:00 A.M - 09:00 A.M</td>";	
-
-			if($fechaInicial == "08:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>09:00 A.M - 10:00 A.M</td>";	
-
-			if($fechaInicial == "9:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>10:00 A.M - 11:00 A.M</td>";	
-
-			if($fechaInicial == "10:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>11:00 A.M - 12:00 P.M</td>";	
-
-			if($fechaInicial == "11:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>12:00 P.M - 01:00 P.M</td>";	
-
-			if($fechaInicial == "12:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>01:00 P.M - 02:00 P.M</td>";	
-
-			if($fechaInicial == "13:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>02:00 P.M - 03:00 P.M</td>";	
-
-			if($fechaInicial == "14:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>03:00 P.M - 04:00 P.M</td>";	
-
-			if($fechaInicial == "15:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>04:00 P.M - 05:00 P.M</td>";	
-
-			if($fechaInicial == "16:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>05:00 P.M - 06:00 P.M</td>";	
-
-			if($fechaInicial == "17:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>06:00 P.M - 07:00 P.M</td>";	
-
-			if($fechaInicial == "18:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>07:00 P.M - 08:00 P.M</td>";	
-
-			if($fechaInicial == "19:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>08:00 P.M - 09:00 P.M</td>";	
-
-			if($fechaInicial == "20:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>09:00 P.M - 10:00 P.M</td>";	
-
-			if($fechaInicial == "21:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>10:00 P.M - 11:00 P.M</td>";	
-
-			if($fechaInicial == "22:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>
-					<td>11:00 P.M - 00:00 A.M</td>";	
-
-			if($fechaInicial == "23:00:00"){
-
-			$html .="<td>Ocupada</td>
-					<td>$usuario</td>";
-
-			}else{
-
-			$html .="<td>Disponible</td>
-					<td></td>";
-
-			}
-
-			$html .="</tr>
-					<tr>";
-
 		};
+
+		if($cont <= 23){
+			for ($i = 0; $cont <= 23; $i++) {
+				if($cont < 10){
+					$comprobar = "0".$cont.":"."00:00";
+				}else{
+					$comprobar = $cont.":"."00:00";
+				}
+				if($cont2 <= 9){
+					if($cont3 == 10){
+					$horaInicial = "0".$cont2.":"."00 AM";
+					$horaFinal = "10".":"."00 AM";
+					}else{
+					$horaInicial = "0".$cont2.":"."00 AM";
+					$horaFinal = "0".$cont3.":"."00 AM";
+					}
+				}else if($cont2 >= 10 and $cont2 <= 12){
+					if($cont3 == 13){
+					$horaInicial = $cont2.":"."00 PM";
+					$horaFinal = "01".":"."00 PM";
+					}else if($cont3 == 12){
+					$horaInicial = $cont2.":"."00 AM";
+					$horaFinal = $cont3.":"."00 PM";
+					}else{
+					$horaInicial = $cont2.":"."00 AM";
+					$horaFinal = $cont3.":"."00 AM";
+					}
+				}else if($cont2 >= 13 and $cont2 <= 21){
+					if($cont3 == 22){
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = "0".$temporal2.":"."00 PM";
+					$horaFinal = "10".":"."00 PM";
+					}else{
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = "0".$temporal2.":"."00 PM";
+					$horaFinal = "0".$temporal3.":"."00 PM";
+					}
+				}else{
+					if($cont3 ==24){
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = $temporal2.":"."00 PM";
+					$horaFinal = "00".":"."00 AM";
+					}else{
+					$temporal2++;
+					$temporal3++;
+					$horaInicial = $temporal2.":"."00 PM";
+					$horaFinal = $temporal3.":"."00 PM";
+					}
+				}
+					$html .="<tr>
+							<td> $horaInicial - $horaFinal</td>";
+			    	$html .="<td>Disponible</td>
+							<td></td>";
+			    $cont++;
+			    $cont2++;
+			    $cont3++;
+			}
+		}
 
 		$html .="</tbody>
 				</table>";
