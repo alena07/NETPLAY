@@ -46,7 +46,7 @@
 						<input class="form-control" type="date" id="fechaReserva" style="display:none" value=""><br>
 						<input class="form-control" type="date" id="created_at" style="display:none" value=""><br>
 						<input class="form-control" type="date" id="updated_at" style="display:none" value=""><br>
-						<input class="form-control" type="text" id="idUsuario" style="display:none" value="1">
+						<input class="form-control" type="text" id="idUsuario" style="display:none" value="2">
 					</div>
 				</form>
 			</div>
