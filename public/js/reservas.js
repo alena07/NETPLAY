@@ -109,24 +109,21 @@ function mostrarHoraFinal(){
 
 	var validarHora = parseInt(horaInicial.substr(0,4));
 	var validarMinutos = parseInt(horaInicial.substr(4,6));
-
-	if(validarHora < 9){
-
-		validarHora='0'+validarHora;
-
-	}
-		
+	
 	if(validarMinutos > "0"){
 
 		$('#horaInicial').val(validarHora+':'+"00");
 
 	}
 
-
 	if(validarHora < hours || validarHora == hours){
 
 		$('#respuesta').html("<p>Hora incorrecta</p>");
 		$('#horaFinal').val("hh"+':'+"mm");
+
+	}else if(validarHora < 9){
+
+		$('#horaFinal').val('0'+(validarHora+1)+':'+"00");
 
 	}else if(validarHora == "23"){
 
@@ -138,6 +135,7 @@ function mostrarHoraFinal(){
 		$('#horaFinal').val((validarHora+1)+':'+"00");
 
 	}
+	
 }
 
 $("#form").on("submit", function(){
