@@ -18,8 +18,8 @@
 		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = $conn->prepare('SELECT fechaInicial FROM reservasCanchas WHERE fechaInicial = :inicial');
-		$sql->execute(array('inicial' => $inicial));
+		$sql = $conn->prepare('SELECT fechaInicial FROM reservasCanchas WHERE fechaInicial = :inicial AND cancha_id = :idcancha');
+		$sql->execute(array('inicial' => $inicial, 'idcancha' => $idcancha));
 		$resultados = $sql->fetchAll();
 		$ban = False;
 
