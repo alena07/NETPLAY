@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	horaInicial = $("#horaInicial")[0];
 	horaInicial.value = hours+':'+"00";
 	horaFinal = $("#horaFinal")[0];
-	horaFinal.value = hours+':'+"00";
+	horaFinal.value = (hours+1)+':'+"00";
 
 	fechaInicial = $("#fechaInicial")[0];
 	fechaInicial.value = yyyy+'-'+mm+'-'+dd;
@@ -103,12 +103,21 @@ function mostrarFechaFinal(){
 function mostrarHoraFinal(){
 
 	var hoy = new Date();
+	var dd = hoy.getDate();
+	var mm = hoy.getMonth()+1; //hoy es 0!
+	var yyyy = hoy.getFullYear();
 	var hours = hoy.getHours();
 
 	var horaInicial = $("#horaInicial").val();
 
 	var validarHora = parseInt(horaInicial.substr(0,4));
 	var validarMinutos = parseInt(horaInicial.substr(4,6));
+
+	var fechaInicial = $("#fechaInicial").val();
+
+	var validarAño = parseInt(fechaInicial.substr(0,4));
+	var validarMes = parseInt(fechaInicial.substr(6,6));
+	var validarDia = parseInt(fechaInicial.substr(8,8));
 	
 	if(validarMinutos > "0"){
 
@@ -116,7 +125,24 @@ function mostrarHoraFinal(){
 
 	}
 
-	if(validarHora < hours || validarHora == hours){
+	if(validarDia > dd || validarMes > mm){
+
+		if(validarHora < 9){
+
+		$('#horaFinal').val('0'+(validarHora+1)+':'+"00");
+
+		}else if(validarHora == "23"){
+
+			$('#horaFinal').val("00"+':'+"00");
+
+		}else{
+
+			$('#respuesta').html("<p></p>");
+			$('#horaFinal').val((validarHora+1)+':'+"00");
+
+		}
+
+	}else if(validarHora < hours || validarHora == hours){
 
 		$('#respuesta').html("<p>Hora incorrecta</p>");
 		$('#horaFinal').val("hh"+':'+"mm");
@@ -159,6 +185,7 @@ $("#form").on("submit", function(){
 	var fechaFinal = $("#fechaFinal").val();
 	var horaInicial = $("#horaInicial").val();
 	var horaFinal = $("#horaFinal").val();
+	var idlocal = $("#localidad").val();
 	var idcancha = $("#cancha").val();
 	var created_at = $("#created_at").val();
 	var updated_at = $("#updated_at").val();
@@ -169,7 +196,17 @@ $("#form").on("submit", function(){
 	var validarDia = parseInt(fechaInicial.substr(8,8));
 	var validarHora = parseInt(horaInicial.substr(0,4));
 
-	if(validarAño > yyyy || validarAño < yyyy || validarAño == "yyyy-mm-dd"){
+	if(idlocal == "Seleccione"){
+
+		$('#respuesta').html("<p>Por favor seleccione una localidad</p>");
+		return false;
+
+	}else if(idcancha == "Seleccione"){
+
+		$('#respuesta').html("<p>Por favor seleccione una cancha</p>");
+		return false;
+
+	}else if(validarAño > yyyy || validarAño < yyyy || validarAño == "yyyy-mm-dd"){
 
 		$('#respuesta').html("<p>Por favor seleccione otro año disponible</p>");
 		return false;
@@ -184,29 +221,34 @@ $("#form").on("submit", function(){
 		$('#respuesta').html("<p>Por favor seleccione otro dia disponible</p>");
 		return false;
 
-	}else if(validarHora < hours || validarHora == hours){
+	}else if((validarHora < hours || validarHora == hours) && validarDia < dd){
+
+		$('#respuesta').html("<p>Por favor seleccione otra hora disponible</p>");
+		return false;
+
+	}else if((validarHora < hours || validarHora == hours) && validarMes < mm){
 
 		$('#respuesta').html("<p>Por favor seleccione otra hora disponible</p>");
 		return false;
 
 	}else{
 
-	$.ajax({
-	method: "POST",
-	url: "/js/ingresarReserva.php",
-	dataType: 'json',
-	data: { fechaReserva: fechaReserva, fechaInicial: fechaInicial, fechaFinal: fechaFinal,
-	 horaInicial: horaInicial, horaFinal: horaFinal, idcancha: idcancha, created_at: created_at,
-	 updated_at: updated_at, idUsuario: idUsuario }
-	})
+		$.ajax({
+		method: "POST",
+		url: "/js/ingresarReserva.php",
+		dataType: 'json',
+		data: { fechaReserva: fechaReserva, fechaInicial: fechaInicial, fechaFinal: fechaFinal,
+		 horaInicial: horaInicial, horaFinal: horaFinal, idcancha: idcancha, created_at: created_at,
+		 updated_at: updated_at, idUsuario: idUsuario }
+		})
 
-	.done(function(response) {
-		$('#respuesta').html(response);
-		// $('#form').trigger("reset");
-	});
+		.done(function(response) {
+			$('#respuesta').html(response);
+			// $('#form').trigger("reset");
+		});
 
-	return false;
+		return false;
 
-	}
+		}
 
 });
