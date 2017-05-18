@@ -18,6 +18,7 @@
 			          <button type="button" class="close" data-dismiss="modal">&times;</button>
 			          <h4 class="modal-title">Horario</h4>
 			          <input type="date" id="fechaBusqueda" oninput="BuscarTodo()">
+			          <input type="text" id="idcanchabusqueda" value="" style="display: none;">
 			        </div>
 			        <div id="modal" class="modal-body">
 						<table class="table table-bordered">
