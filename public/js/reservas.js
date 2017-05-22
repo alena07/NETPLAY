@@ -118,7 +118,10 @@ function mostrarHoraFinal(){
 	var validarAño = parseInt(fechaInicial.substr(0,4));
 	var validarMes = parseInt(fechaInicial.substr(6,6));
 	var validarDia = parseInt(fechaInicial.substr(8,8));
-	
+
+	if(validarHora < 9){
+		validarHora = '0'+validarHora;
+	}
 	if(validarMinutos > "0"){
 
 		$('#horaInicial').val(validarHora+':'+"00");
@@ -221,12 +224,12 @@ $("#form").on("submit", function(){
 		$('#respuesta').html("<p>Por favor seleccione otro dia disponible</p>");
 		return false;
 
-	}else if((validarHora < hours || validarHora == hours) && validarDia < dd){
+	}else if((validarHora < hours || validarHora == hours) && (validarDia < dd || validarDia == dd)){
 
 		$('#respuesta').html("<p>Por favor seleccione otra hora disponible</p>");
 		return false;
 
-	}else if((validarHora < hours || validarHora == hours) && validarMes < mm){
+	}else if((validarHora < hours || validarHora == hours) && (validarMes < mm || validarDia == dd)){
 
 		$('#respuesta').html("<p>Por favor seleccione otra hora disponible</p>");
 		return false;

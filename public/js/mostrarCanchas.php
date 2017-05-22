@@ -23,7 +23,7 @@
 					<div id='$id' class='col-sm-4 col-md-4 col-lg-4'>
 					<b><h1 class='cancha-titulo'>$numeroCancha</h1></b>
 					<a href='#' data-toggle='modal' data-target='#myModal'>
-					<img id='$id' src='$imagenCancha' alt='Not found' width='350px' height='200px'>
+					<img id='$id' src='$imagenCancha' alt='Not found' width='500px' height='250px'>
 					</a>
 					<h3 style='margin-top: 2%; margin-bottom: 0px'><b>Local:</b> <spam>$nombre</spam></h3>
 					<h3 style='margin-top: 0px; margin-bottom: 0px'><b>Dirección:</b> <spam>$direccion</spam></h3>

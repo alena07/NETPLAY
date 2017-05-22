@@ -21,4 +21,9 @@ class MainsController extends Controller
     {
       return view('reservas');
     }
+
+    public function promociones()
+    {
+      return view('promociones');
+    }
 }
