@@ -35,7 +35,7 @@
 			    <ul class="nav navbar-nav pull-right">		      	
 			        <li class="active color-link nav-text"><a href="{{ url('/') }}"><b>Inicio</b> <span class="sr-only">(current)</span></a></li>
 			        <li class="color-link nav-text"><a href="{{ url('/canchas') }}"><b>Canchas</b></a></li>
-			        <li class="color-link nav-text"><a href="{{ url('/reservas') }}"><b>Reservas</b></a></li>
+			        <li class="color-link nav-text"><a href="{{ url('/promociones') }}"><b>Promociones</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->
 		    </div>
@@ -45,8 +45,8 @@
 			<div class="col-md-5 col-sm-5">
 			<div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav pull-left">    
-			        <li class="color-link nav-text"><a href="{{ url('/promociones') }}"><b>Promociones</b></a></li>
-			        <li class="color-link nav-text"><a href="#"><b>Admin</b></a></li>
+			        <li class="color-link nav-text"><a href="{{ url('/reservas') }}"><b>Reservas</b></a></li>
+			        <li class="color-link nav-text"><a href="{{ url('/ganancias') }}"><b>Ganancias</b></a></li>
 			        <li class="color-link nav-text"><a href="#"><b>Contactos</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->

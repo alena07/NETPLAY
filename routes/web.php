@@ -25,6 +25,8 @@ Route::get('reservas', 'MainsController@reservas');
 
 Route::get('promociones', 'MainsController@promociones');
 
+Route::get('ganancias', 'MainsController@ganancias');
+
 // Route::get('inicio', 'MainsController@index');
 
 Route::get('registrar', 'UsersController@registrar');

@@ -17,6 +17,7 @@ class CreateSoccerFieldsTable extends Migration
             $table->increments('id');
             $table->String('numeroCancha', 20);
             $table->String('imagenCancha', 100);
+            $table->integer('valor');
             $table->enum('estado', ['D', 'O', 'C']);
             $table->integer('localidad_id')->unsigned();
             $table->foreign('localidad_id')->references('id')->on('localidades');

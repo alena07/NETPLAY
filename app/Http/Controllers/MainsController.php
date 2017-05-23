@@ -26,4 +26,9 @@ class MainsController extends Controller
     {
       return view('promociones');
     }
+
+    public function ganancias()
+    {
+      return view('ganancias');
+    }
 }
