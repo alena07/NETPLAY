@@ -5,7 +5,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT DATE(horareserva),porcentaje,DATE(fecha),valor FROM reservas,canchas,promociones,reservasCanchas WHERE reservas.id = reservasCanchas.reserva_id AND reservasCanchas.cancha_id = canchas.id AND (reservas.horareserva >= :inicio AND reservas.horareserva <= :fin) ORDER BY horareserva');
@@ -14,11 +14,14 @@
 		$html = "";
 		$cont = 1;
 		$suma = 0;
+		$mostrar = False;
 
 		$html .="<div class='col-sm-12 col-md-12 col-lg-12' style='background-color: #FEFEFE;'>
 				<br>";
 
 		foreach ($resultados as $resultado) {
+
+			$mostrar = True;
 
 			$horareserva = $resultado['DATE(horareserva)'];
 			$porcentaje = $resultado['porcentaje'];
@@ -45,10 +48,17 @@
 				
 		};
 
+		if($mostrar == True){
+
 		$html .="<hr>
 				<p style='font-size: 18px'><b>El total ganado fue: $ $suma</b></p>
 				<br>
 				</div>";
+
+		}else{
+
+		$html .="</div>";
+		}
 
 		echo json_encode($html);
 

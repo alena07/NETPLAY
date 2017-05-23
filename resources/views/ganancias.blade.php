@@ -15,6 +15,7 @@
 						<input type="date" id="fechaInicial">
 						<label for="fechaFinal">hasta</label>	
 						<input type="date" id="fechaFinal">
+						
 						<input class="btn btn-success" type="submit" value="Aceptar">
 					</div>
 

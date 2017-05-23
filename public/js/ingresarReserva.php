@@ -52,6 +52,30 @@
 		$sql->bindParam("created_at", $created_at, PDO::PARAM_STR);
 		$sql->bindParam("updated_at", $updated_at, PDO::PARAM_STR);
 		$sql->execute();
+
+		$sql = $conn->prepare('SELECT * FROM reservasCanchas ORDER BY id DESC LIMIT 1');
+		$sql->execute();
+		$resultados = $sql->fetchAll();
+
+		foreach ($resultados as $resultado) {
+			$idReservaCancha = $resultado['id'];
+		};
+
+		$sql = $conn->prepare('SELECT * FROM canchas WHERE id= :idcancha');
+		$sql->execute(array('idcancha' => $idcancha));
+		$resultados = $sql->fetchAll();
+
+		foreach ($resultados as $resultado) {
+			$valor = $resultado['valor'];
+		};
+
+		$sql = $conn->prepare('SELECT * FROM canchas,promociones,reservas WHERE id= :idcancha');
+		$sql->execute(array('idcancha' => $idcancha));
+		$resultados = $sql->fetchAll();
+
+		foreach ($resultados as $resultado) {
+			$valor = $resultado['valor'];
+		};
 	
 		$html = "<p style='color: #008000'>Se ingreso la reserva correctamente</p>";
 

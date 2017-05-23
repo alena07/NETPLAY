@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 });
 
-function BuscarTodo(){
+$("#form").on("submit", function(){
 
 	inicio = $("#fechaBusqueda").val();
 	fin = $("#fechaBusqueda2").val();
@@ -57,6 +57,8 @@ function BuscarTodo(){
 				$('#promociones').html(response);
 			});
 
+		return false;
+
 	}else{
 
 		$('#respuesta').html(" ");
@@ -73,6 +75,8 @@ function BuscarTodo(){
 				$('#promociones').html(response);
 			});
 
+		return false;
+		
 	}
 
-}
+});
