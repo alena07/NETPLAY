@@ -12,7 +12,7 @@
 		$sql->execute(array('inicio' => $inicio, 'fin' => $fin));
 		$resultados = $sql->fetchAll();
 		$html = "";
-		$cont = 1;
+		$cont = 0;
 		$suma = 0;
 		$mostrar = False;
 		$comparar = 0;
@@ -31,22 +31,48 @@
 
 			if($descuento != "0%"){
 				
-				$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$descuento</b> el total fue: <b>$ $precio</b></p>";
-
 				$comparar = $fecha;
+
+				if($comparar == $fecha){
+
+					$cont++;
+
+					$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$descuento</b> el total fue: <b>$ $precio</b></p>";
+
+				}else{
+
+					$cont = 1;
+
+					$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$descuento</b> el total fue: <b>$ $precio</b></p>";
+
+				}
 
 				$suma = $suma + $precio;
 
 			}else{
-
-				$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con un total de <b>$ $precio</b></p>";	
-
+		
 				$suma = $suma + $precio;
 
 				$comparar = $fecha;
+
+				if($comparar == $fecha){
+
+					$cont++;
+
+					$f = "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con un total de <b>$ $precio * $cont</b></p>";	
+
+				}else{
+
+					$cont = 1;
+
+					$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con un total de <b>$ $precio</b></p>";	
+
+				}
 			}
 				
 		};
+
+		$html .= "<p style='font-size: 18px'>$f</p>";
 
 		if($mostrar == True){
 
