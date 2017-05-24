@@ -15,7 +15,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT fechaInicial FROM reservasCanchas WHERE fechaInicial = :inicial AND cancha_id = :idcancha');
@@ -59,23 +59,44 @@
 
 		foreach ($resultados as $resultado) {
 			$idReservaCancha = $resultado['id'];
+			$cancha_id = $resultado['cancha_id'];
 		};
 
-		$sql = $conn->prepare('SELECT * FROM canchas WHERE id= :idcancha');
-		$sql->execute(array('idcancha' => $idcancha));
+		$sql = $conn->prepare('SELECT * FROM canchas,promociones WHERE canchas.id= :cancha_id AND promociones.cancha_id = :cancha_id');
+		$sql->execute(array('cancha_id' => $cancha_id));
 		$resultados = $sql->fetchAll();
 
 		foreach ($resultados as $resultado) {
+
 			$valor = $resultado['valor'];
+			$fecha = $resultado['fecha'];
+
+			if($fecha == $fechaReserva){
+
+				$porcentaje = $resultado['porcentaje'];
+
+				$descuento = ($valor*$porcentaje)/100;
+
+				$total = $valor - $descuento;
+
+			}else{
+
+				$porcentaje = "0%";
+
+				$total = $valor;
+			}
+
 		};
 
-		$sql = $conn->prepare('SELECT * FROM canchas,promociones,reservas WHERE id= :idcancha');
-		$sql->execute(array('idcancha' => $idcancha));
-		$resultados = $sql->fetchAll();
 
-		foreach ($resultados as $resultado) {
-			$valor = $resultado['valor'];
-		};
+		$sql = $conn->prepare('INSERT INTO ganancias VALUES (null, :fechaReserva, :total, :porcentaje, :idReservaCancha, :created_at, :updated_at)');
+		$sql->bindParam("fechaReserva", $fechaReserva, PDO::PARAM_STR);
+		$sql->bindParam("total", $total, PDO::PARAM_STR);
+		$sql->bindParam("porcentaje", $porcentaje, PDO::PARAM_STR);
+		$sql->bindParam("idReservaCancha", $idReservaCancha, PDO::PARAM_STR);
+		$sql->bindParam("created_at", $created_at, PDO::PARAM_STR);
+		$sql->bindParam("updated_at", $updated_at, PDO::PARAM_STR);
+		$sql->execute();
 	
 		$html = "<p style='color: #008000'>Se ingreso la reserva correctamente</p>";
 

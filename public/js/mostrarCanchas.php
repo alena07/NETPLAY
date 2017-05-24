@@ -2,7 +2,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT * FROM localidades,canchas WHERE localidades.id = canchas.localidad_id');

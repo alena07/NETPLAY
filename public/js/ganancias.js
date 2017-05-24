@@ -71,6 +71,7 @@ $("#form").on("submit", function(){
 		})
 
 		.done(function(response) {
+			alert(response);
 			$('#total').html(response);
 		});
 

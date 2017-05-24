@@ -5,16 +5,17 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = $conn->prepare('SELECT DATE(horareserva),porcentaje,DATE(fecha),valor FROM reservas,canchas,promociones,reservasCanchas WHERE reservas.id = reservasCanchas.reserva_id AND reservasCanchas.cancha_id = canchas.id AND (reservas.horareserva >= :inicio AND reservas.horareserva <= :fin) ORDER BY horareserva');
+		$sql = $conn->prepare('SELECT DATE(fecha),precio,descuento,valor FROM ganancias,canchas,reservasCanchas WHERE ganancias.reservaCancha_id = reservasCanchas.id AND reservasCanchas.cancha_id = canchas.id AND (ganancias.fecha >= :inicio AND ganancias.fecha <= :fin) ORDER BY fecha');
 		$sql->execute(array('inicio' => $inicio, 'fin' => $fin));
 		$resultados = $sql->fetchAll();
 		$html = "";
 		$cont = 1;
 		$suma = 0;
 		$mostrar = False;
+		$comparar = 0;
 
 		$html .="<div class='col-sm-12 col-md-12 col-lg-12' style='background-color: #FEFEFE;'>
 				<br>";
@@ -23,27 +24,26 @@
 
 			$mostrar = True;
 
-			$horareserva = $resultado['DATE(horareserva)'];
-			$porcentaje = $resultado['porcentaje'];
-			$fecha = $resultado['DATE(fecha)'];
 			$valor = $resultado['valor'];
+			$fecha = $resultado['DATE(fecha)'];
+			$descuento = $resultado['descuento'];
+			$precio = $resultado['precio'];
 
-			if($horareserva == $fecha){
+			if($descuento != "0%"){
+				
+				$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$descuento</b> el total fue: <b>$ $precio</b></p>";
 
-				$descuento = ($valor*$porcentaje)/100;
+				$comparar = $fecha;
 
-				$total = $valor - $descuento;
-
-				$html .= "<p style='font-size: 18px'>En la fecha <b>$horareserva</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$porcentaje</b> el total fue: <b>$ $total</b></p>";
-
-				$suma = $suma + $total;
+				$suma = $suma + $precio;
 
 			}else{
 
-				$html .= "<p style='font-size: 18px'>En la fecha <b>$horareserva</b> se realizo una reserva con un total de <b>$ $valor</b></p>";	
+				$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con un total de <b>$ $precio</b></p>";	
 
-				$suma = $suma + $valor;
+				$suma = $suma + $precio;
 
+				$comparar = $fecha;
 			}
 				
 		};

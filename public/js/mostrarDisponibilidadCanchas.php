@@ -5,7 +5,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT usuario,TIME(fechaInicial) FROM personas,reservas,reservasCanchas WHERE personas.id = reservas.persona_id AND reservasCanchas.cancha_id = :idcancha AND reservascanchas.reserva_id = reservas.id AND DATE(fechaInicial) = :fechaBusqueda ORDER BY fechaInicial');
