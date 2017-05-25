@@ -59,11 +59,10 @@
 
 		foreach ($resultados as $resultado) {
 			$idReservaCancha = $resultado['id'];
-			$cancha_id = $resultado['cancha_id'];
 		};
 
-		$sql = $conn->prepare('SELECT * FROM canchas,promociones WHERE canchas.id= :cancha_id AND promociones.cancha_id = :cancha_id');
-		$sql->execute(array('cancha_id' => $cancha_id));
+		$sql = $conn->prepare('SELECT * FROM canchas,promociones WHERE canchas.id= :idcancha');
+		$sql->execute(array('idcancha' => $idcancha));
 		$resultados = $sql->fetchAll();
 
 		foreach ($resultados as $resultado) {
