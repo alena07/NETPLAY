@@ -22,6 +22,7 @@
 		$sql->execute(array('inicial' => $inicial, 'idcancha' => $idcancha));
 		$resultados = $sql->fetchAll();
 		$ban = False;
+		$prom = False;
 
 		foreach ($resultados as $resultado) {
 			$ban = True;
@@ -61,31 +62,43 @@
 			$idReservaCancha = $resultado['id'];
 		};
 
-		$sql = $conn->prepare('SELECT * FROM canchas,promociones WHERE canchas.id= :idcancha');
+		$sql = $conn->prepare('SELECT * FROM canchas,promociones WHERE canchas.id = :idcancha AND promociones.cancha_id = :idcancha AND promociones.fecha = :fechaInicial');
+		$sql->execute(array('idcancha' => $idcancha, 'fechaInicial' => $fechaInicial));
+		$resultados = $sql->fetchAll();
+
+		foreach ($resultados as $resultado) {
+
+			$valor = $resultado['valor'];
+
+			$porcentaje = $resultado['porcentaje'];
+
+			$descuento = ($valor*$porcentaje)/100;
+
+			$total = $valor - $descuento;
+
+
+			$prom = True;
+
+		};
+
+		if($prom == False){
+
+		$sql = $conn->prepare('SELECT * FROM canchas WHERE canchas.id = :idcancha');
 		$sql->execute(array('idcancha' => $idcancha));
 		$resultados = $sql->fetchAll();
 
 		foreach ($resultados as $resultado) {
 
 			$valor = $resultado['valor'];
-			$fecha = $resultado['fecha'];
 
-			if($fecha == $fechaReserva){
+			$porcentaje = "0%";
 
-				$porcentaje = $resultado['porcentaje'];
-
-				$descuento = ($valor*$porcentaje)/100;
-
-				$total = $valor - $descuento;
-
-			}else{
-
-				$porcentaje = "0%";
-
-				$total = $valor;
-			}
+			$total = $valor;
 
 		};
+
+
+		}
 
 
 		$sql = $conn->prepare('INSERT INTO ganancias VALUES (null, :fechaReserva, :total, :porcentaje, :idReservaCancha, :created_at, :updated_at)');

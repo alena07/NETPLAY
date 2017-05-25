@@ -14,14 +14,16 @@ $( document ).ready(function() {
 	    mm='0'+mm
 	} 
 
-	if(hours < 12){
+	if(hours < 10){
 		hours='0'+hours
 	}
+
+	suma = parseInt(hours)+1;
 
 	horaInicial = $("#horaInicial")[0];
 	horaInicial.value = hours+':'+"00";
 	horaFinal = $("#horaFinal")[0];
-	horaFinal.value = (hours+1)+':'+"00";
+	horaFinal.value = (suma)+':'+"00";
 
 	fechaInicial = $("#fechaInicial")[0];
 	fechaInicial.value = yyyy+'-'+mm+'-'+dd;
