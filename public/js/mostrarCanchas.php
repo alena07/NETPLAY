@@ -9,6 +9,7 @@
 		$sql->execute();
 		$resultados = $sql->fetchAll();
 		$html = "";
+		$cont = 0;
 
 		foreach ($resultados as $resultado) {
 			$id = $resultado['id'];
@@ -30,6 +31,16 @@
 					<h3 style='margin-top: 0px'><b>Telefono:</b> <spam>$telefono</spam></h3>
 
 					</div>";
+
+			$cont++;
+
+			if($cont  == 3){
+
+				$html .= "<div class='col-sm-12 col-md-12 col-lg-12'></div>";
+				$cont = 0;
+
+			}
+			
 		};
 
 		echo json_encode($html);
