@@ -14,14 +14,16 @@ $( document ).ready(function() {
 	    mm='0'+mm
 	} 
 
-	if(hours < 12){
+	if(hours < 10){
 		hours='0'+hours
 	}
+
+	suma = parseInt(hours)+1;
 
 	horaInicial = $("#horaInicial")[0];
 	horaInicial.value = hours+':'+"00";
 	horaFinal = $("#horaFinal")[0];
-	horaFinal.value = (hours+1)+':'+"00";
+	horaFinal.value = (suma)+':'+"00";
 
 	fechaInicial = $("#fechaInicial")[0];
 	fechaInicial.value = yyyy+'-'+mm+'-'+dd;
@@ -98,6 +100,8 @@ function mostrarFechaFinal(){
 
 	}	
 
+	mostrarHoraFinal()
+
 }
 
 function mostrarHoraFinal(){
@@ -119,9 +123,6 @@ function mostrarHoraFinal(){
 	var validarMes = parseInt(fechaInicial.substr(6,6));
 	var validarDia = parseInt(fechaInicial.substr(8,8));
 
-	if(validarHora < 9){
-		validarHora = '0'+validarHora;
-	}
 	if(validarMinutos > "0"){
 
 		$('#horaInicial').val(validarHora+':'+"00");
@@ -132,7 +133,9 @@ function mostrarHoraFinal(){
 
 		if(validarHora < 9){
 
-		$('#horaFinal').val('0'+(validarHora+1)+':'+"00");
+			suma = parseInt(validarHora)+1;
+
+			$('#horaFinal').val("0"+(suma)+':'+"00");
 
 		}else if(validarHora == "23"){
 
@@ -140,8 +143,10 @@ function mostrarHoraFinal(){
 
 		}else{
 
+			suma = parseInt(validarHora)+1;
+
 			$('#respuesta').html("<p></p>");
-			$('#horaFinal').val((validarHora+1)+':'+"00");
+			$('#horaFinal').val((suma)+':'+"00");
 
 		}
 
@@ -152,16 +157,19 @@ function mostrarHoraFinal(){
 
 	}else if(validarHora < 9){
 
-		$('#horaFinal').val('0'+(validarHora+1)+':'+"00");
+		suma = parseInt(validarHora)+1;
+
+		$('#horaFinal').val("0"+(suma)+':'+"00");
 
 	}else if(validarHora == "23"){
 
 		$('#horaFinal').val("00"+':'+"00");
 
 	}else{
+		suma = parseInt(validarHora)+1;
 
 		$('#respuesta').html("<p></p>");
-		$('#horaFinal').val((validarHora+1)+':'+"00");
+		$('#horaFinal').val((suma)+':'+"00");
 
 	}
 	
@@ -246,6 +254,7 @@ $("#form").on("submit", function(){
 		})
 
 		.done(function(response) {
+
 			$('#respuesta').html(response);
 			// $('#form').trigger("reset");
 		});
