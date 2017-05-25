@@ -30,6 +30,7 @@ $(document).ready(function(){
 	})
 
 	.done(function(response) {
+		// alert(response);
 		$('#total').html(response);
 	});
 

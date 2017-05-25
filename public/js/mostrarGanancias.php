@@ -35,7 +35,11 @@
 				
 				$suma = $suma + $precio;
 
-				if($comparar != $fecha && $comparar != 0){
+				if($comparar == 0){
+
+					$suma = 0;
+
+				}else if($comparar != $fecha && $comparar != 0){
 
 					$cont++;
 
@@ -57,8 +61,12 @@
 				$suma = $suma + $precio;
 
 				// $html .="<p>$comparar $fecha</p>";
-			
-				if($comparar != $fecha && $comparar != 0){
+
+				if($comparar == 0){
+
+					$suma = 0;
+
+				}else if($comparar != $fecha && $comparar != 0){
 
 					$html .= "<p style='font-size: 18px'>En la fecha <b>$comparar</b> se realizo una reserva con un total de <b>$ $precio * $cont</b></p>";
 
@@ -104,6 +112,8 @@
 
 					$cont++;
 
+					$f = "sip";
+
 				}
 
 				$comparar = $fecha;
@@ -124,6 +134,7 @@
 				}else if($comparar == $fecha){
 
 					$cont++;
+					$f = "si";
 
 				}
 
@@ -132,6 +143,14 @@
 				
 		};
 
+		if($f == "si"){
+			$cont =  $cont-1;
+			$html .= "<p style='font-size: 18px'>En la fecha <b>$comparar</b> se realizo una reserva con un total de <b>$ $precio * $cont</b></p>";
+			
+		}else if($f == "sip"){
+			$cont =  $cont-1;
+			$html .= "<p style='font-size: 18px'>En la fecha <b>$fecha</b> se realizo una reserva con valor de <b>$ $valor</b> con un descuento del <b>$descuento</b> el total fue: <b>$ $precio * $cont</b></p>";
+		}
 
 		if($mostrar == True){
 

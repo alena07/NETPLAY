@@ -34,7 +34,7 @@
 					</div>";
 
 			$html .="<div class='col-sm-6 col-md-6 col-lg-6'>
-					<img src='$imagenCancha' alt='Not found' width='500px' height='230px'>
+					<img src='$imagenCancha' alt='Not found' width='500px' height='240px'>
 					</div>
 
 					<div class='col-sm-12 col-md-12 col-lg-12'></div>";
