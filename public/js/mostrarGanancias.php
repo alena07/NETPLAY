@@ -5,7 +5,7 @@
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "12345");
+		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT DATE(fecha),precio,descuento,valor FROM ganancias,canchas,reservasCanchas WHERE ganancias.reservaCancha_id = reservasCanchas.id AND reservasCanchas.cancha_id = canchas.id AND (ganancias.fecha >= :inicio AND ganancias.fecha <= :fin) ORDER BY fecha');
