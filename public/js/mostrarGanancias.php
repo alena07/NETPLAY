@@ -1,11 +1,18 @@
 <?php
+
+	// Variables de entorno
+	$db_connection = getenv('DB_CONNECTION');	
+	$db_host = getenv('DB_HOST');
+	$db_database = getenv('DB_DATABASE');
+	$db_username = getenv('DB_USERNAME');
+	$db_password = getenv('DB_PASSWORD');
 	
 	$inicio = $_POST['inicio'];
 	$fin = $_POST['fin'];
 
 	try{
 
-		$conn = new PDO('mysql:host=localhost; dbname=netplay', "root", "123456");
+		$conn = new PDO("$db_connection:host=$db_host; dbname=$db_database", "$db_username", "$db_password");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT DATE(fecha),precio,descuento,valor FROM ganancias,canchas,reservasCanchas WHERE ganancias.reservaCancha_id = reservasCanchas.id AND reservasCanchas.cancha_id = canchas.id AND (ganancias.fecha >= :inicio AND ganancias.fecha <= :fin) ORDER BY fecha');

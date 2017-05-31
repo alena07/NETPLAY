@@ -42,10 +42,10 @@
 					  </button>
 					  <ul style="background-color: #1b1b1b;" class="dropdown-menu" aria-labelledby="dropdownCanchas">
 						<li class="color-link nav-text"><a style="color: #FFFFFF" href="{{ url('/promociones') }}"><b>Mostrar</b></a></li>
-					    <li class="color-link nav-text hov"><a style="color: #FFFFFF" href="{{ url('/agregarpromociones') }}"><b>Agregar</b></a></li>
+					   {{--  <li class="color-link nav-text hov"><a style="color: #FFFFFF" href="{{ url('/agregarpromociones') }}"><b>Agregar</b></a></li> --}}
 					   {{--  <li class="color-link nav-text hov"><a style="color: #FFFFFF" href="{{ url('/modificarpromociones') }}"><b>Modificar</b></a></li>
 					    <li class="color-link nav-text hov"><a style="color: #FFFFFF" href="{{ url('/eliminarpromociones') }}"><b>Eliminar</b></a></li> --}}
-					  </ul>
+					</ul>
 				</div> 	        
 			        
 			    <div class="dropdown pull-right color-link nav-text">
@@ -70,8 +70,8 @@
 			<div class="col-md-5 col-sm-5">
 			<div class="collapse navbar-collapse center-links" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav pull-left">    
-			        <li class="color-link nav-text"><a href="{{ url('/reservas') }}"><b>Reservas</b></a></li>
-			        <li class="color-link nav-text"><a href="{{ url('/ganancias') }}"><b>Ganancias</b></a></li>
+			        <li class="color-link nav-text"><a href="{{ url('/reservasuser') }}"><b>Reservas</b></a></li>
+			        {{-- <li class="color-link nav-text"><a href="{{ url('/ganancias') }}"><b>Ganancias</b></a></li> --}}
 			        <li class="color-link nav-text"><a href="#"><b>Contactos</b></a></li>
 			    </ul>		       
 		    </div><!-- /.navbar-collapse -->

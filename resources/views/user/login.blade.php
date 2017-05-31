@@ -25,17 +25,17 @@
 
             <hr>
             <div class="form-bottom">
-				<form role="form" action="" method="post" class="login-form">
+				<form id="form" role="form" action="" method="post" class="login-form">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<label class="label-form login-text">Usuario</label>
-						<input type="text" name="usuario" placeholder="Usuario..." class="form-username form-control">
+						<input id="username" type="text" name="usuario" placeholder="Usuario..." class="form-username form-control">
 					</div>
 
 					<div class="col-lg-12 col-md-12 col-sm-12"><br></div>
 
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<label class="label-form login-text">Contraseña</label>
-						<input type="password" name="contrasena" placeholder="Contraseña..." class="form-username form-control" >
+						<input id="password" type="password" name="contrasena" placeholder="Contraseña..." class="form-username form-control" >
 					</div>
 
 					<div class="col-lg-12 col-md-12 col-sm-12"><br><br></div>
@@ -78,6 +78,8 @@
 	<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 
 	@yield('javascript')
+
+	<script src="{{ asset('js/login.js') }}"></script>
 	
 </body>
 </html>
