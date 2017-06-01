@@ -12,7 +12,7 @@
 
 	try{
 
-		$conn = new PDO("$db_connection:host=$db_host; dbname=$db_database", "$db_username", "$db_password");
+		$conn = new PDO("pgsql:host=ec2-23-23-234-118.compute-1.amazonaws.com; dbname=d2durqe293ofor", "txsulhszxbixwo", "0ab5407d1cf3637134725758d4c9c4297661446d56f7c5256967cc05e6131123");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = $conn->prepare('SELECT * FROM personas WHERE (usuario = :username AND contrasenia = :password)');
